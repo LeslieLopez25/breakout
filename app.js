@@ -127,6 +127,13 @@ function checkForCollisions() {
       changeDirection();
       score++;
       scoreDisplay.innerHTML = score;
+
+      // CHECK FOR WIN
+      if (blocks.length === 0) {
+        scoreDisplay.innerHTML = "YOU WIN";
+        clearInterval(timerId);
+        document.removeEventListener("keydown", moveUser);
+      }
     }
   }
   // CHECK FOR WALL COLLISIONS
