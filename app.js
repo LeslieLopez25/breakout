@@ -138,6 +138,16 @@ function checkForCollisions() {
     changeDirection();
   }
 
+  // CHECK FOR USER COLLISIONS
+  if (
+    ballCurrentPosition[0] > currentPosition[0] &&
+    ballCurrentPosition[0] < currentPosition[0] + blockWidth &&
+    ballCurrentPosition[1] > currentPosition[1] &&
+    ballCurrentPosition[1] < currentPosition[1] + blockHeight
+  ) {
+    changeDirection();
+  }
+
   // CHECK FOR GAME OVER
   if (ballCurrentPosition[1] <= 0) {
     clearInterval(timerId);
